@@ -25,11 +25,13 @@ public class GameGraphics extends JPanel implements ActionListener {
     public void paint(Graphics g) {
         //отрисовка всех объектов
         g = (Graphics2D) g;
-        g.drawImage(background, 0, 0, 1200,600, null);
+        g.drawImage(background, 0, 0, 1000,600, null);
+        g.drawLine(0,250, 1000, 250);
+        g.drawLine(0,250, 1000, 250);
         //TODO add another visual objects
 
 
-        g.drawImage(m.minionIcon, m.layer1, m.y, 80,80, null);
+        g.drawImage(m.minionIcon, m.minionMoving, 250, 80,100, null);
 
     }
 
@@ -37,6 +39,9 @@ public class GameGraphics extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
         m.move();
+        if(m.minionMoving > 950){
+            m.minionMoving = 0;
+        }
         repaint();
     }
 
