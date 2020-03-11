@@ -2,6 +2,8 @@ package models;
 
 import other.Coordinates;
 
+import java.awt.event.KeyEvent;
+
 public abstract class Unit {
 	protected int           health;
 	protected boolean       isAlive;
@@ -57,4 +59,6 @@ public abstract class Unit {
 	public Coordinates getCoord() {
 		return coord;
 	}
+
+
 }

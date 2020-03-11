@@ -1,10 +1,16 @@
 package gameGraphics;
 
 import models.Minion;
+import other.Coordinates;
 
-public class Dynamics { //Player
+public class Dynamics {
+    Minion minion = new Minion();
+    //TODO убрать генерацию миньенов в другой класс
     void actionPerformed(){
-        Minion minion = new Minion();
-        //minion.move();
+
+        Coordinates startMinionPosition = new Coordinates(1,1);
+        minion.move(startMinionPosition);
+
+
     }
 }
