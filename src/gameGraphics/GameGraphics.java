@@ -15,23 +15,21 @@ public class GameGraphics extends JPanel implements ActionListener {
     MinionGraphics m = new MinionGraphics();
     //TODO убрать генерацию миньенов в другой класс
     Image background = new ImageIcon("./src/GameGraphics/image/background.png").getImage();
+    Image heroImage = new ImageIcon("./src/GameGraphics/image/despicableMe.png").getImage();
 
-    JFrame frame;
 
     public GameGraphics() {
         timer.start();
     }
 
     public void paint(Graphics g) {
-        //отрисовка всех объектов
-        g = (Graphics2D) g;
-        g.drawImage(background, 0, 0, 1000,600, null);
-        g.drawLine(0,250, 1000, 250);
-        g.drawLine(0,250, 1000, 250);
+
+        g.drawImage(background, 0, 0, 900,700, null);
+        g.drawImage(heroImage, 820, 300, 80, 110, null);
         //TODO add another visual objects
 
 
-        g.drawImage(m.minionIcon, m.minionMoving, 250, 80,100, null);
+        g.drawImage(m.minionIcon, m.minionMoving, 350, 60,60, null);
 
     }
 
@@ -39,7 +37,7 @@ public class GameGraphics extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
         m.move();
-        if(m.minionMoving > 950){
+        if(m.minionMoving > 900){
             m.minionMoving = 0;
         }
         repaint();

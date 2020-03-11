@@ -10,7 +10,7 @@ public class Display {
 
             JFrame frame = new JFrame(/* название нашей игры */);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(1000,600);
+            frame.setSize(900,700);
             frame.setResizable(false);
             frame.add(new GameGraphics());
 
