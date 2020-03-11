@@ -36,4 +36,15 @@ public class Minion extends ShootingUnit {
 	public int getSpeed() {
 		return (this.speed);
 	}
+
+	public Coordinates move(Coordinates coord) {
+		int x;
+		int y;
+
+		x = coord.getX();
+		y = coord.getY();
+		if (x < 10)
+			++x;
+		return (new Coordinates(x, y));
+	}
 }
