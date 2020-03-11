@@ -2,7 +2,7 @@ package models;
 
 import other.Coordinates;
 
-public class Minion extends Creep {
+public class Minion extends ShootingUnit {
 	private int speed;
 
 	public Minion() {

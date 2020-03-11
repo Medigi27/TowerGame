@@ -2,12 +2,12 @@ package models;
 
 import other.Coordinates;
 
-public abstract class Creep {
-	protected int         health;
-	protected boolean     isAlive;
-	protected Coordinates coord;
+public abstract class Unit {
+	protected int           health;
+	protected boolean       isAlive;
+	protected Coordinates   coord;
 
-	public Creep() {
+	public Unit() {
 		health = 0;
 		isAlive = false;
 		coord = new Coordinates(0, 0);
@@ -15,16 +15,17 @@ public abstract class Creep {
 		coord.setY(0);
 	}
 
-	public Creep(int health) {
+	public Unit(int health) {
+		this();
 		this.health = health;
 	}
 
-	public Creep(int health, boolean isAlive) {
+	public Unit(int health, boolean isAlive) {
 		this(health);
 		this.isAlive = isAlive;
 	}
 
-	public Creep(int health, boolean isAlive, Coordinates coord) {
+	public Unit(int health, boolean isAlive, Coordinates coord) {
 		this(health, isAlive);
 	}
 
