@@ -16,9 +16,6 @@ public class Display {
 
             frame.setVisible(true);
 
-
-
-
         }
 }
 

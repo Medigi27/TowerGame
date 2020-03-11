@@ -46,5 +46,6 @@ public class Minion extends ShootingUnit {
 		if (x < 10)
 			++x;
 		return (new Coordinates(x, y));
+
 	}
 }
