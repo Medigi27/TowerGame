@@ -3,6 +3,8 @@ package models;
 import other.Coordinates;
 
 public class Hero extends Unit {
+	private String name;
+
 	public Hero() {
 		super();
 	}
