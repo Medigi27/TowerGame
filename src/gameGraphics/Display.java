@@ -1,7 +1,6 @@
-package GameGraphics;
+package gameGraphics;
 
 import javax.swing.*;
-import java.awt.*;
 
 
 public class Display {

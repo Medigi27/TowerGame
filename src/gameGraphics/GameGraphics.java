@@ -1,4 +1,4 @@
-package GameGraphics;
+package gameGraphics;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,6 +27,8 @@ public class GameGraphics extends JPanel implements ActionListener {  //Main
 
 
     }
+
+
 
 
     @Override
