@@ -22,9 +22,9 @@ public class SmallTower extends Tower {
 
 	@Override
 	public int shoot(int health) {
-		if (health - dmg < 0)
+		if (health - damage < 0)
 			return (0);
-		return (health - dmg);
+		return (health - damage);
 	}
 
 	public Image getImage() {

@@ -38,14 +38,25 @@ public class GameGraphics extends JPanel implements ActionListener {
         setFocusable(true);
     }
 
-
-    public void paint(Graphics g) {
-
-        g.drawImage(background, 0, 0, 900,700, null);
+    private void drawHero(Graphics g) {
         g.drawImage(heroImage, 820, 300, 80, 110, null);
+    }
+
+    private void drawTowers(Graphics g) {
         for (SmallTower iter : storage.getTowers()) {
             g.drawImage(iter.getImage(), iter.getCoord().getX(), iter.getCoord().getY(), 80, 120, null);
         }
+    }
+
+    private void drawBackground(Graphics g) {
+        g.drawImage(background, 0, 0, 900,700, null);
+    }
+
+    public void paint(Graphics g) {
+        drawBackground(g);
+        drawHero(g);
+        drawTowers(g);
+        //todo: tmp fields
         g.drawImage(m.getImgMinion(), m.getCoord().getX(), 350, 60,60, null);
     }
 

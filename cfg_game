@@ -5,3 +5,5 @@ damageMinion = 1
 damageTower = 1
 speedMinion = 1
 quantityMinions = 1
+radiusAttackMinion = 13
+radiusAttackTower = 6

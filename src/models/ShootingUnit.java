@@ -4,7 +4,7 @@ import other.Coordinates;
 
 public abstract class ShootingUnit extends Unit implements UnitAction {
 	protected int radiusAttack;
-	protected int dmg;
+	protected int damage;
 
 	ShootingUnit() {
 		super();
@@ -24,6 +24,6 @@ public abstract class ShootingUnit extends Unit implements UnitAction {
 
 	@Override
 	public int shoot(int health) {
-		return (health - dmg);
+		return (health - damage);
 	}
 }

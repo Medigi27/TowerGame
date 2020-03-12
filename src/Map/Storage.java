@@ -15,8 +15,15 @@ public class Storage {
 	private int healthTower;
 	private int speedMinion;
 	public static final String PATH_IMG_HERO = "./src/GameGraphics/image/despicableMe.png";
-	public static final String PATH_IMG_MINION = "./src/GameGraphics/image/minion.png";
+	public static final String PATH_IMG_HERO_ATTACKED = "";
 	public static final String PATH_IMG_TOWER = "./src/GameGraphics/image/tower.png";
+	public static final String PATH_IMG_TOWER_ATTACK = "src/imagesPolina/imegesGame/towerAttack.png";
+	public static final String PATH_IMG_TOWER_DESTROY = "";
+	public static final String PATH_TOWER_ATTACKED = "";
+	public static final String PATH_IMG_MINION = "./src/GameGraphics/image/minion.png";
+	public static final String PATH_IMG_MINION_ATTACK = "";
+	public static final String PATH_IMG_MINION_ATTACKED = "src/imagesPolina/imegesGame/minionAttacked.png";
+	public static final String PATH_IMG_MINION_DIE = "";
 
 	private List<Minion> listOfMinions;
 	private List<SmallTower> towers;
