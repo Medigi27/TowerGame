@@ -7,26 +7,18 @@ import other.Coordinates;
 import javax.swing.*;
 import java.awt.*;
 
-enum StatusMinion {
-	MINION_MOVING,
-	MINION_ATTACKED,
-	MINION_ATTACK,
-	MINION_DIE;
-}
-
 public class Minion extends ShootingUnit {
 	private final static Image MINION_IMG = new ImageIcon(Storage.PATH_IMG_MINION).getImage();
 	private final static Image MINION_ATTACK = new ImageIcon(Storage.PATH_IMG_MINION_ATTACK).getImage();
 	private final static Image MINION_ATTACKED = new ImageIcon(Storage.PATH_IMG_MINION_ATTACKED).getImage();
 	private final static Image MINION_DIE = new ImageIcon(Storage.PATH_IMG_MINION_DIE).getImage();
 	private int speed;
-	StatusMinion sm;
 
 	public Minion() {
 		super();
 		Config cfg = new Config();
-		sm = StatusMinion.MINION_MOVING;
 		this.speed = cfg.getCfgValue(Config.SPEED_MINION);
+		this.radiusAttack = cfg.getCfgValue(Config.RADIUS_ATTACK_MINION);
 		this.imageUnit = new ImageIcon("./src/GameGraphics/image/minion.png").getImage();
 	}
 
@@ -65,14 +57,14 @@ public class Minion extends ShootingUnit {
 	}
 
 	public Image getCurrentImageMinion() {
-		switch (sm) {
-			case MINION_ATTACK:
+		switch (su) {
+			case ATTACK:
 				return (MINION_ATTACK);
-			case MINION_ATTACKED:
+			case ATTACKED:
 				return (MINION_ATTACKED);
-			case MINION_DIE:
+			case DIE:
 				return (MINION_DIE);
-			case MINION_MOVING:
+			case DEFAULT:
 				return (MINION_IMG);
 		}
 		return (null);

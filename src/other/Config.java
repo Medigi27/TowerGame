@@ -15,6 +15,8 @@ public class Config {
 	public static final String  DAMAGE_TOWER = "damageTower";
 	public static final String  SPEED_MINION = "speedMinion";
 	public static final String  QUANTITY_MINION = "quantityMinions";
+	public static final String  RADIUS_ATTACK_MINION = "radiusAttackMinion";
+	public static final String  RADIUS_ATTACK_TOWER = "radiusAttackTower";
 	public static final int DEFAULT_HEALTH = 10;
 	public static final int DEFAULT_DAMAGE = 1;
 	public static final int DEFAULT_SPEED = 3;

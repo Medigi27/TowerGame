@@ -23,7 +23,8 @@ public abstract class ShootingUnit extends Unit implements UnitAction {
 	}
 
 	@Override
-	public int shoot(int health) {
-		return (health - damage);
+	public void shoot(Unit unit) {
+		this.su = StatusUnit.ATTACK;
+		unit.su = StatusUnit.ATTACKED;
 	}
 }

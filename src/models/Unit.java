@@ -12,8 +12,10 @@ public abstract class Unit {
 	protected boolean       isAlive;
 	protected Coordinates   coord;
 	protected Image         imageUnit;
+	protected StatusUnit    su;
 
 	public Unit() {
+		this.su = StatusUnit.DEFAULT;
 		health = 0;
 		isAlive = false;
 		coord = new Coordinates(0, 0);
@@ -74,5 +76,12 @@ public abstract class Unit {
 		return coord;
 	}
 
+	public int getLength(Unit unit) {
+		double xCurr = this.coord.getX();
+		double yCurr = this.coord.getY();
+		double xUnit = unit.getCoord().getX();
+		double yUnit = unit.getCoord().getY();
 
+		return ((int)Math.sqrt(Math.pow((xCurr - xUnit), 2) + Math.pow((yCurr - xUnit), 2)));
+	}
 }

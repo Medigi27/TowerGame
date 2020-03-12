@@ -1,13 +1,22 @@
 package models;
 
+import Map.Storage;
+import other.Config;
 import other.Coordinates;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class SmallTower extends Tower {
+	private static final Image TOWER_ATTACK = new ImageIcon("src/imagesPolina/imegesGame/towerAttack.png").getImage();
+	private static final Image TOWER_ATTACKED = new ImageIcon("").getImage();
+	private static final Image TOWER_DESTROY = new ImageIcon("").getImage();
+	private static final Image TOWER_DEFAULT = new ImageIcon(Storage.PATH_IMG_TOWER).getImage();
+
 	public SmallTower() {
 		super();
+		Config cfg = new Config();
+		this.radiusAttack = cfg.getCfgValue(Config.RADIUS_ATTACK_TOWER);
 		this.imageUnit = new ImageIcon("./src/GameGraphics/image/tower.png").getImage();
 	}
 
@@ -20,14 +29,19 @@ public class SmallTower extends Tower {
 		this.coord = coord;
 	}
 
-	@Override
-	public int shoot(int health) {
-		if (health - damage < 0)
-			return (0);
-		return (health - damage);
+	public Image getImage() {
+		return (getCurrentImageTower());
 	}
 
-	public Image getImage() {
-		return (this.imageUnit);
+	public Image getCurrentImageTower() {
+		switch (su) {
+			case ATTACK:
+				return (TOWER_ATTACK);
+			case ATTACKED:
+				return (TOWER_ATTACKED);
+			case DEFAULT:
+				return (TOWER_DEFAULT);
+		}
+		return (null);
 	}
 }
