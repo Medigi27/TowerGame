@@ -1,14 +1,10 @@
-package Map;
+package map;
 
 import models.SmallTower;
-import models.Tower;
-import models.Unit;
 import other.Coordinates;
 
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.LinkedList;
 
 public class HandlerAdapters extends MouseAdapter {
 	Storage storage;

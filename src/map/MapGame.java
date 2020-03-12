@@ -1,17 +1,9 @@
-package Map;
+package map;
 
 import gameGraphics.GameGraphics;
-import models.Hero;
-import models.Minion;
-import models.SmallTower;
-import models.Tower;
 import other.Config;
-import other.Coordinates;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 public class MapGame {
     private Config cfg;

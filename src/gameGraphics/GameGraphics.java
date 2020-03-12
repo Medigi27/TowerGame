@@ -1,11 +1,10 @@
 package gameGraphics;
 
-import Map.HandlerAdapters;
-import Map.MapGame;
-import Map.Storage;
+import map.HandlerAdapters;
+import map.Storage;
 import models.Minion;
 import models.SmallTower;
-import models.Tower;
+import models.StatusUnit;
 import other.Config;
 
 import javax.swing.*;
@@ -15,17 +14,16 @@ import java.util.ArrayList;
 
 public class GameGraphics extends JPanel implements ActionListener {
     Timer timer = new Timer(20, this);
-    Config cfg;
-    Storage storage;
-    Minion m;
-    SmallTower st;
+    Config          cfg;
+    Storage         storage;
+    Minion          m;
+    SmallTower      st;
     HandlerAdapters ha;
 
     Image background = new ImageIcon("./src/GameGraphics/image/background.png").getImage();
     Image heroImage = new ImageIcon("./src/GameGraphics/image/despicableMe.png").getImage();
     Image tower = new ImageIcon("./src/GameGraphics/image/tower.png").getImage();
     ArrayList<Image> towerList = new ArrayList<>();
-
 
     public GameGraphics(Config cfg, Storage storage) {
         this.cfg = cfg;
@@ -43,8 +41,13 @@ public class GameGraphics extends JPanel implements ActionListener {
     }
 
     private void drawTowers(Graphics g) {
+        int length;
         for (SmallTower iter : storage.getTowers()) {
-            g.drawImage(iter.getImage(), iter.getCoord().getX(), iter.getCoord().getY(), 80, 120, null);
+            length = iter.getLength(m);
+            if (length <= iter.getRadiusAttack())
+                iter.shoot(m);
+            g.drawImage(iter.getCurrentImageTower(), iter.getCoord().getX(), iter.getCoord().getY(), 80, 120, null);
+            iter.setStatusUnit(StatusUnit.DEFAULT);
         }
     }
 
@@ -57,7 +60,8 @@ public class GameGraphics extends JPanel implements ActionListener {
         drawHero(g);
         drawTowers(g);
         //todo: tmp fields
-        g.drawImage(m.getImgMinion(), m.getCoord().getX(), 350, 60,60, null);
+        g.drawImage(m.getCurrentImageMinion(), m.getCoord().getX(), 350, 60, 60, null);
+        m.setStatusUnit(StatusUnit.DEFAULT);
     }
 
     @Override

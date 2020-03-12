@@ -84,4 +84,8 @@ public abstract class Unit {
 
 		return ((int)Math.sqrt(Math.pow((xCurr - xUnit), 2) + Math.pow((yCurr - xUnit), 2)));
 	}
+
+	public void setStatusUnit(StatusUnit su) {
+		this.su = su;
+	}
 }

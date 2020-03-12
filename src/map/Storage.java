@@ -1,9 +1,8 @@
-package Map;
+package map;
 
 import models.Hero;
 import models.Minion;
 import models.SmallTower;
-import models.Tower;
 import other.Config;
 
 import java.util.LinkedList;

@@ -1,6 +1,6 @@
 package models;
 
-import Map.Storage;
+import map.Storage;
 import other.Config;
 import other.Coordinates;
 
