@@ -1,3 +1,7 @@
-name:13
-speed:20
-Other:222
+healthHero  =  3
+healthMinion =  5
+healthTower = 5
+damageMinion = 1
+damageTower = 1
+speedMinion = 1
+quantityMinions = 1

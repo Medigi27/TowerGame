@@ -7,13 +7,20 @@ import java.nio.Buffer;
 import java.util.*;
 
 public class Config {
+	public static final String  HEALTH_HERO = "healthHero";
+	public static final String  HEALTH_MINION = "healthMinion";
+	public static final String HEALTH_TOWER = "healthTower";
+	public static final String  DAMAGE_MINION = "damageMinion";
+	public static final String  DAMAGE_TOWER = "damageTower";
+	public static final String  SPEED_MINION = "speedMinion";
+	public static final String  QUANTITY_MINION = "quantityMinions";
 	private final static String NAME_CFG = "cfg_game";
 	private Map<String, Integer> lines;
 
 	public Config() {
 		lines = new HashMap<String, Integer>();
 		getInfoCfg();
-//		printMap();
+		printMap();
 	}
 
 	private void getInfoCfg() {
@@ -44,24 +51,25 @@ public class Config {
 		int date = 0;
 
 		try {
-			date = cfg.getCfgValue("Other");
+			date = cfg.getCfgValue(Config.DAMAGE_MINION);
 		} catch (CfgValueNotFound e) {
 			System.out.println("Значение не найденно");
 		}
-		System.out.println("Other: " + date);
+		System.out.println("damageMinion: " + date);
 	}
 
 	private void readCfgFile(File cfg) {
 		BufferedReader br;
 		FileReader fr;
+		String splitter = "=";
 		String line;
 		String[] nameValue = new String[2];
 
 		try {
 			br = new BufferedReader(new FileReader(cfg));
 			while ((line = br.readLine()) != null) {
-				nameValue = line.split(":");
-				lines.put(nameValue[0], Integer.parseInt(nameValue[1]));
+				nameValue = line.split(splitter);//todo: тут может быть ошибка
+				lines.put(nameValue[0].trim(), Integer.parseInt(nameValue[1].trim()));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
