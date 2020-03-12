@@ -24,7 +24,16 @@ public class Config {
 	private final static String NAME_CFG = "cfg_game";
 	private Map<String, Integer> lines;
 
-	public Config() {
+	private static Config instance;
+
+	public static Config getInstance(){
+		if(instance == null){
+			instance = new Config();
+		}
+		return instance;
+	}
+
+	private Config() {
 		lines = new HashMap<String, Integer>();
 		getInfoCfg();
 	}

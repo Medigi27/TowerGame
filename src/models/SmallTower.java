@@ -15,7 +15,7 @@ public class SmallTower extends Tower {
 
 	public SmallTower() {
 		super();
-		Config cfg = new Config();
+		Config cfg = Config.getInstance();
 		this.radiusAttack = cfg.getCfgValue(Config.RADIUS_ATTACK_TOWER);
 		this.imageUnit = new ImageIcon("./src/GameGraphics/image/tower.png").getImage();
 	}

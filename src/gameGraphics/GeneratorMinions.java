@@ -9,13 +9,15 @@ import java.util.List;
 import java.util.Random;
 
 public class GeneratorMinions{
-	List<Minion> minions = new LinkedList<>();
+	List<Minion> minions;
 	int cooldown = 100;
 	Random r = new Random();
 
 	int countMinions = 4;  //TODO перенести в конфиги
 
-
+	public GeneratorMinions(Storage storage) {
+		minions = storage.getListOfMinions();
+	}
 
 	void fillMinions(){
 		cooldown--;

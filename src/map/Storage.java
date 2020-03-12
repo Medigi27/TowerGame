@@ -31,7 +31,7 @@ public class Storage {
 	private SmallTower smallTower;
 
 	Storage() {
-		Config cfg = new Config();
+		Config cfg = Config.getInstance();
 		this.healthMinion = cfg.getCfgValue(Config.HEALTH_MINION);
 		this.healthHero = cfg.getCfgValue(Config.HEALTH_HERO);
 		this.healthTower = cfg.getCfgValue(Config.HEALTH_TOWER); //todo: переделать под тип башни
@@ -99,6 +99,14 @@ public class Storage {
 
 	public void setStorageMinion(Minion minion) {
 
+	}
+
+	public List<Minion> getListOfMinions() {
+		return listOfMinions;
+	}
+
+	public void setListOfMinions(List<Minion> listOfMinions) {
+		this.listOfMinions = listOfMinions;
 	}
 
 	public void setStorageTower(SmallTower st) {

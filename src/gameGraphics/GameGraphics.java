@@ -32,7 +32,7 @@ public class GameGraphics extends JPanel implements ActionListener {
         this.st = new SmallTower();
         m = new Minion();
         ha = new HandlerAdapters(storage);
-        genMinions = new GeneratorMinions();
+        genMinions = new GeneratorMinions(storage);
         timer.start();
         addMouseListener(ha);
         setFocusable(true);

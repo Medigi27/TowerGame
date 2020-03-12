@@ -10,7 +10,7 @@ public class MapGame {
     private Storage storage;
 
     public MapGame() {
-        cfg = new Config();
+        cfg = Config.getInstance();
         storage = new Storage();
     }
 
@@ -19,7 +19,7 @@ public class MapGame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900,700);
         frame.setResizable(false);
-        frame.add(new GameGraphics(this.cfg, storage));
+        frame.add(new GameGraphics(this.cfg, this.storage));
         frame.setVisible(true);
     }
 }
