@@ -19,7 +19,7 @@ public class Storage {
 	public static final String PATH_IMG_TOWER = "./src/GameGraphics/image/tower.png";
 
 	private List<Minion> listOfMinions;
-	public List<Tower> towers;
+	public List<SmallTower> towers;
 	private Hero hero;
 	private Minion minion;
 	private SmallTower smallTower;
@@ -31,10 +31,8 @@ public class Storage {
 		this.healthTower = cfg.getCfgValue(Config.HEALTH_TOWER); //todo: переделать под тип башни
 		this.speedMinion = cfg.getCfgValue(Config.SPEED_MINION);
 		this.listOfMinions = new LinkedList<Minion>();
-		this.towers = new LinkedList<Tower>();
+		this.towers = new LinkedList<SmallTower>();
 		hero = new Hero(PATH_IMG_HERO);
-		minion = new Minion(PATH_IMG_MINION);
-		smallTower = new SmallTower(PATH_IMG_TOWER);
 	}
 
 	public int getHealthMinion() {
@@ -83,5 +81,21 @@ public class Storage {
 
 	public void setMinion(Minion minion) {
 		this.minion = minion;
+	}
+
+	public List<SmallTower> getTowers() {
+		return towers;
+	}
+
+	public void setTowers(List<SmallTower> towers) {
+		this.towers = towers;
+	}
+
+	public void setStorageMinion(Minion minion) {
+
+	}
+
+	public void setStorageTower(SmallTower st) {
+		towers.add(st);
 	}
 }

@@ -11,11 +11,10 @@ import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 
 public class HandlerAdapters extends MouseAdapter {
-	LinkedList<SmallTower> towers;
-	Unit unit;
+	Storage storage;
 
-	public HandlerAdapters() {
-		this.towers = new LinkedList<>();
+	public HandlerAdapters(Storage storage) {
+		this.storage = storage;
 	}
 
 	@Override
@@ -25,14 +24,6 @@ public class HandlerAdapters extends MouseAdapter {
 		coord.setX(e.getX());
 		coord.setY(e.getY());
 		SmallTower tower = new SmallTower(coord);
-		towers.add(tower);
-	}
-
-	public Unit getUnit() {
-		return (unit);
-	}
-
-	public LinkedList<SmallTower> getTowers() {
-		return (towers);
+		storage.setStorageTower(tower);
 	}
 }

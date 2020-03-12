@@ -18,8 +18,8 @@ public class GameGraphics extends JPanel implements ActionListener {
     Config cfg;
     Storage storage;
     Minion m;
-    SmallTower st = new SmallTower(Storage.PATH_IMG_TOWER);
-    HandlerAdapters ha = new HandlerAdapters();
+    SmallTower st;
+    HandlerAdapters ha;
 
     Image background = new ImageIcon("./src/GameGraphics/image/background.png").getImage();
     Image heroImage = new ImageIcon("./src/GameGraphics/image/despicableMe.png").getImage();
@@ -30,7 +30,9 @@ public class GameGraphics extends JPanel implements ActionListener {
     public GameGraphics(Config cfg, Storage storage) {
         this.cfg = cfg;
         this.storage = storage;
+        this.st = new SmallTower();
         m = new Minion();
+        ha = new HandlerAdapters(storage);
         timer.start();
         addMouseListener(ha);
         setFocusable(true);
@@ -41,7 +43,7 @@ public class GameGraphics extends JPanel implements ActionListener {
 
         g.drawImage(background, 0, 0, 900,700, null);
         g.drawImage(heroImage, 820, 300, 80, 110, null);
-        for (SmallTower iter : ha.getTowers()) {
+        for (SmallTower iter : storage.getTowers()) {
             g.drawImage(iter.getImage(), iter.getCoord().getX(), iter.getCoord().getY(), 80, 120, null);
         }
         g.drawImage(m.getImgMinion(), m.getCoord().getX(), 350, 60,60, null);
@@ -55,5 +57,4 @@ public class GameGraphics extends JPanel implements ActionListener {
         m.move();
         repaint();
     }
-
 }

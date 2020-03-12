@@ -16,7 +16,8 @@ public class SmallTower extends Tower {
 	}
 
 	public SmallTower(Coordinates coord) {
-		super(coord);
+		this();
+		this.coord = coord;
 	}
 
 	@Override
