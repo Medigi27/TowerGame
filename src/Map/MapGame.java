@@ -14,11 +14,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MapGame {
-    public Config cfg;
+    private Config cfg;
+    private Storage storage;
 
     public MapGame() {
         cfg = new Config();
-        Storage storage = new Storage();
+        storage = new Storage();
     }
 
     public void startGame() {
@@ -26,7 +27,7 @@ public class MapGame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900,700);
         frame.setResizable(false);
-        frame.add(new GameGraphics());
+        frame.add(new GameGraphics(this.cfg, storage));
         frame.setVisible(true);
     }
 }

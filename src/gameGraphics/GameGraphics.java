@@ -2,9 +2,11 @@ package gameGraphics;
 
 import Map.HandlerAdapters;
 import Map.MapGame;
+import Map.Storage;
 import models.Minion;
 import models.SmallTower;
 import models.Tower;
+import other.Config;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,13 +15,10 @@ import java.util.ArrayList;
 
 public class GameGraphics extends JPanel implements ActionListener {
     Timer timer = new Timer(20, this);
-    MapGame mp;
-
-    GameGraphics(MapGame mp) {
-        this.mp = mp;
-    }
-    Minion m = new Minion(MapGame.PATH_IMG_MINION);
-    SmallTower st = new SmallTower(MapGame.PATH_IMG_TOWER);
+    Config cfg;
+    Storage storage;
+    Minion m;
+    SmallTower st = new SmallTower(Storage.PATH_IMG_TOWER);
     HandlerAdapters ha = new HandlerAdapters();
 
     Image background = new ImageIcon("./src/GameGraphics/image/background.png").getImage();
@@ -28,7 +27,10 @@ public class GameGraphics extends JPanel implements ActionListener {
     ArrayList<Image> towerList = new ArrayList<>();
 
 
-    public GameGraphics() {
+    public GameGraphics(Config cfg, Storage storage) {
+        this.cfg = cfg;
+        this.storage = storage;
+        m = new Minion();
         timer.start();
         addMouseListener(ha);
         setFocusable(true);
