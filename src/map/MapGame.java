@@ -17,7 +17,7 @@ public class MapGame {
     public void startGame() {
         JFrame frame = new JFrame(/* название нашей игры */);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(900,700);
+        frame.setSize(Storage.WIDTH_WINDOW,Storage.HEIGHT_WINDOW);
         frame.setResizable(false);
         frame.add(new GameGraphics(this.cfg, this.storage));
         frame.setVisible(true);

@@ -29,6 +29,8 @@ public class Storage {
 	private Hero hero;
 	private Minion minion;
 	private SmallTower smallTower;
+	public  static final int HEIGHT_WINDOW = 700;
+	public  static final int WIDTH_WINDOW = 900;
 
 	Storage() {
 		Config cfg = Config.getInstance();

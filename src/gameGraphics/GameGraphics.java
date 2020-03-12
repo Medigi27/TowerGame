@@ -13,7 +13,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class GameGraphics extends JPanel implements ActionListener {
-    Timer timer = new Timer(2, this);
+    Timer timer = new Timer(3, this);
     Config          cfg;
     Storage         storage;
     Minion          m;
@@ -30,7 +30,6 @@ public class GameGraphics extends JPanel implements ActionListener {
         this.cfg = cfg;
         this.storage = storage;
         this.st = new SmallTower();
-        m = new Minion();
         ha = new HandlerAdapters(storage);
         genMinions = new GeneratorMinions(storage);
         timer.start();
@@ -44,13 +43,23 @@ public class GameGraphics extends JPanel implements ActionListener {
 
     private void drawTowers(Graphics g) {
         int length;
+
         for (SmallTower iter : storage.getTowers()) {
-            length = iter.getLength(m);
-            if (length <= iter.getRadiusAttack())
-                iter.shoot(m);
+            for (Minion iterMinion : storage.getListOfMinions()) {
+                length = iter.getLength(iterMinion);
+                if (length <= iter.getRadiusAttack())
+                    iter.shoot(iterMinion);
+                else {
+                    iter.setStatusUnit(StatusUnit.DEFAULT);
+                    iterMinion.setStatusUnit(StatusUnit.DEFAULT);
+                }
+            }
+        }
+        for (SmallTower iter : storage.getTowers()) {
             g.drawImage(iter.getCurrentImageTower(), iter.getCoord().getX(), iter.getCoord().getY(), 80, 120, null);
             iter.setStatusUnit(StatusUnit.DEFAULT);
         }
+        genMinions.paint(g);
     }
 
     private void drawBackground(Graphics g) {
@@ -64,14 +73,12 @@ public class GameGraphics extends JPanel implements ActionListener {
         drawHero(g);
         drawTowers(g);
         //todo: tmp fields
-        g.drawImage(m.getCurrentImageMinion(), m.getCoord().getX(), 350, 60, 60, null);
-        genMinions.paint(g);
-        m.setStatusUnit(StatusUnit.DEFAULT);
+//        genMinions.paint(g);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        m.move();
+//        m.move();
         repaint();
     }
 }

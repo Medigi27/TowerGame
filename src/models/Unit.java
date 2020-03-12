@@ -1,5 +1,6 @@
 package models;
 
+import map.Storage;
 import other.Config;
 import other.Coordinates;
 
@@ -82,7 +83,7 @@ public abstract class Unit {
 		double xUnit = unit.getCoord().getX();
 		double yUnit = unit.getCoord().getY();
 
-		return ((int)Math.sqrt(Math.pow((xCurr - xUnit), 2) + Math.pow((yCurr - xUnit), 2)));
+		return ((int)Math.sqrt((Math.pow((xCurr - xUnit), 2)) + (Math.pow((yCurr - yUnit) - (Storage.WIDTH_WINDOW / 4), 2))));
 	}
 
 	public void setStatusUnit(StatusUnit su) {

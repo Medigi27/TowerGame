@@ -2,6 +2,7 @@ package gameGraphics;
 
 import map.Storage;
 import models.Minion;
+import other.Config;
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -10,13 +11,16 @@ import java.util.Random;
 
 public class GeneratorMinions{
 	List<Minion> minions;
+	Config cfg;
 	int cooldown = 100;
-	Random r = new Random();
-
-	int countMinions = 4;  //TODO перенести в конфиги
+	Random r;
+	int countMinions;
 
 	public GeneratorMinions(Storage storage) {
 		minions = storage.getListOfMinions();
+		cfg = Config.getInstance();
+		this.countMinions = cfg.getCfgValue(Config.COUNT_MINIONS);
+		r = new Random();
 	}
 
 	void fillMinions(){
@@ -34,7 +38,7 @@ public class GeneratorMinions{
 	public void paint(Graphics g) {
 
 		for (Minion iter : minions) {
-			g.drawImage(iter.getImgMinion(), iter.getCoord().getX(), 350, 60, 60, null);
+			g.drawImage(iter.getCurrentImageMinion(), iter.getCoord().getX(), 350, 60, 60, null);
 		}
 	}
 
