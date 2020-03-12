@@ -32,7 +32,7 @@ public class Config {
 			} catch (IOException e) {
 				System.err.println("file does't created");
 			}
-			//initCfg()
+			//TODO: need create init file cfg.
 		}
 		else {
 			readCfgFile(cfg);
@@ -63,13 +63,14 @@ public class Config {
 		FileReader fr;
 		String splitter = "=";
 		String line;
-		String[] nameValue = new String[2];
+		String[] nameValue;
 
 		try {
 			br = new BufferedReader(new FileReader(cfg));
 			while ((line = br.readLine()) != null) {
-				nameValue = line.split(splitter);//todo: тут может быть ошибка
-				lines.put(nameValue[0].trim(), Integer.parseInt(nameValue[1].trim()));
+				nameValue = line.split(splitter);
+				if (nameValue.length == 2)
+					lines.put(nameValue[0].trim(), Integer.parseInt(nameValue[1].trim()));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
