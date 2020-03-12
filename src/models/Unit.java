@@ -1,5 +1,6 @@
 package models;
 
+import other.Config;
 import other.Coordinates;
 
 import javax.swing.*;
@@ -18,6 +19,11 @@ public abstract class Unit {
 		coord = new Coordinates(0, 0);
 		coord.setX(0);
 		coord.setY(0);
+	}
+
+	public Unit(Config cfg) {
+		this();
+		this.health = Config.DEFAULT_HEALTH;
 	}
 
 	public Unit(String pathImage) {

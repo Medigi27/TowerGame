@@ -1,5 +1,6 @@
 package other;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import gameTrows.CfgValueNotFound;
 
 import java.io.*;
@@ -14,6 +15,10 @@ public class Config {
 	public static final String  DAMAGE_TOWER = "damageTower";
 	public static final String  SPEED_MINION = "speedMinion";
 	public static final String  QUANTITY_MINION = "quantityMinions";
+	public static final int DEFAULT_HEALTH = 10;
+	public static final int DEFAULT_DAMAGE = 1;
+	public static final int DEFAULT_SPEED = 3;
+
 	private final static String NAME_CFG = "cfg_game";
 	private Map<String, Integer> lines;
 
@@ -46,7 +51,7 @@ public class Config {
 	}
 
 	private void readCfgFile(File cfg) {
-		BufferedReader br;
+		BufferedReader br = null;
 		FileReader fr;
 		String splitter = "=";
 		String line;
@@ -59,6 +64,12 @@ public class Config {
 				if (nameValue.length == 2)
 					lines.put(nameValue[0].trim(), Integer.parseInt(nameValue[1].trim()));
 			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			if (br != null)
+				br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

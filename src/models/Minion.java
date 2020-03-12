@@ -1,5 +1,6 @@
 package models;
 
+import other.Config;
 import other.Coordinates;
 
 import javax.swing.*;
@@ -10,7 +11,14 @@ public class Minion extends ShootingUnit {
 
 	public Minion() {
 		super();
-		speed = 0;
+		Config cfg = new Config();
+		this.speed = cfg.getCfgValue(Config.SPEED_MINION);
+		this.imageUnit = new ImageIcon("./src/GameGraphics/image/minion.png").getImage();
+	}
+
+	public Minion(Config cfg) {
+		this.health = cfg.getCfgValue(Config.SPEED_MINION);
+		this.speed = cfg.getCfgValue(Config.SPEED_MINION);
 	}
 
 	public Minion(String pathImgMinion) {
@@ -40,6 +48,5 @@ public class Minion extends ShootingUnit {
 		}
 		else
 			this.coord.setX(x + this.speed);
-		//this.coord.setY()
 	}
 }
