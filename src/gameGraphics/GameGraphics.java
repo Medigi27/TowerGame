@@ -47,10 +47,7 @@ public class GameGraphics extends JPanel implements ActionListener {
             g.drawImage(iter.getImage(), iter.getCoord().getX(), iter.getCoord().getY(), 80, 120, null);
         }
         g.drawImage(m.getImgMinion(), m.getCoord().getX(), 350, 60,60, null);
-
     }
-
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
