@@ -2,6 +2,9 @@ package models;
 
 import other.Coordinates;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class Minion extends ShootingUnit {
 	private int speed;
 
@@ -10,23 +13,8 @@ public class Minion extends ShootingUnit {
 		speed = 0;
 	}
 
-	public Minion(int health) {
-		super(health);
-	}
-
-	public Minion(int health, int speed) {
-		super(health);
-		this.speed = speed;
-	}
-
-	public Minion(int health, int speed, boolean isAlive) {
-		super(health, isAlive);
-		this.speed = speed;
-	}
-
-	public Minion(int health, int speed, boolean isAlive, Coordinates coord) {
-		super(health, isAlive, coord);;
-		this.speed = speed;
+	public Minion(String pathImgMinion) {
+		super(pathImgMinion);
 	}
 
 	public void setSpeed(int speed) {
@@ -37,15 +25,21 @@ public class Minion extends ShootingUnit {
 		return (this.speed);
 	}
 
-	public Coordinates move(Coordinates coord) {
-		int x;
-		int y;
+	public Image getImgMinion() {
+		return (imageUnit);
+	}
 
-		x = coord.getX();
-		y = coord.getY();
-		if (x < 10)
-			++x;
-		return (new Coordinates(x, y));
+	public void move() {
+		//todo проверка выхода за пределы
+		int x = this.coord.getX();
+		int y = this.coord.getY();
 
+		//tmp
+		if (x > 820) {
+			this.coord.setX(0);
+		}
+		else
+			this.coord.setX(x + this.speed);
+		//this.coord.setY()
 	}
 }

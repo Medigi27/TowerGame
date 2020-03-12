@@ -2,12 +2,15 @@ package models;
 
 import other.Coordinates;
 
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public abstract class Unit {
 	protected int           health;
 	protected boolean       isAlive;
 	protected Coordinates   coord;
+	protected Image         imageUnit;
 
 	public Unit() {
 		health = 0;
@@ -15,6 +18,11 @@ public abstract class Unit {
 		coord = new Coordinates(0, 0);
 		coord.setX(0);
 		coord.setY(0);
+	}
+
+	public Unit(String pathImage) {
+		this();
+		this.imageUnit = new ImageIcon(pathImage).getImage();
 	}
 
 	public Unit(int health) {

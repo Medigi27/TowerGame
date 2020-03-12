@@ -20,7 +20,6 @@ public class Config {
 	public Config() {
 		lines = new HashMap<String, Integer>();
 		getInfoCfg();
-		printMap();
 	}
 
 	private void getInfoCfg() {
@@ -44,18 +43,6 @@ public class Config {
 			throw new CfgValueNotFound();
 		else
 			return (lines.get(name));
-	}
-
-	public static void main(String[] args) {
-		Config cfg = new Config();
-		int date = 0;
-
-		try {
-			date = cfg.getCfgValue(Config.DAMAGE_MINION);
-		} catch (CfgValueNotFound e) {
-			System.out.println("Значение не найденно");
-		}
-		System.out.println("damageMinion: " + date);
 	}
 
 	private void readCfgFile(File cfg) {

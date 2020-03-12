@@ -9,7 +9,5 @@ public class Dynamics {
 
         Coordinates startMinionPosition = new Coordinates(1,1);
 
-
-
     }
 }

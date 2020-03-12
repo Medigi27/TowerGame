@@ -2,6 +2,8 @@ package models;
 
 import other.Coordinates;
 
+import java.awt.*;
+
 public class Hero extends Unit {
 	private String name;
 
@@ -9,15 +11,7 @@ public class Hero extends Unit {
 		super();
 	}
 
-	public Hero(int health) {
-		super(health);
-	}
-
-	public Hero(int health, boolean isAlive) {
-		super(health, isAlive);
-	}
-
-	public Hero(int health, boolean isAlive, Coordinates coord) {
-		super(health, isAlive, coord);
+	public Hero(String pathImgHero) {
+		super(pathImgHero);
 	}
 }

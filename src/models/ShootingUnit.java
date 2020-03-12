@@ -10,26 +10,8 @@ public abstract class ShootingUnit extends Unit implements UnitAction {
 		super();
 	}
 
-	ShootingUnit(int health) {
-		super(health);
-	}
-
-	public ShootingUnit(int health, boolean isAlive) {
-		super(health, isAlive);
-	}
-
-	public ShootingUnit(int health, boolean isAlive, Coordinates coord) {
-		super(health, isAlive, coord);;
-	}
-
-	public ShootingUnit(int health, boolean isAlive, Coordinates coord, int radiusAttack) {
-		super(health, isAlive, coord);
-		this.radiusAttack = radiusAttack;
-	}
-
-	public ShootingUnit(int health, boolean isAlive, Coordinates coord, int radiusAttack, int dmg) {
-		this(health, isAlive, coord, radiusAttack);
-		this.dmg = dmg;
+	ShootingUnit(String pathImg) {
+		super(pathImg);
 	}
 
 	public void setRadiusAttack(int radiusAttack) {

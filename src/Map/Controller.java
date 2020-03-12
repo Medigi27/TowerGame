@@ -2,8 +2,8 @@ package Map;
 
 public class Controller {
 
-    public Map refresh(Map map) {
+    public MapGame refresh(MapGame mapGame) {
 
-        return map;
+        return mapGame;
     }
 }

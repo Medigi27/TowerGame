@@ -1,6 +1,6 @@
 package gameTrows;
 
-public class CfgValueNotFound extends Exception {
+public class CfgValueNotFound extends RuntimeException {
 	public CfgValueNotFound() {
 		super();
 	}
