@@ -19,7 +19,7 @@ public class Storage {
 	public static final String PATH_IMG_TOWER = "./src/GameGraphics/image/tower.png";
 
 	private List<Minion> listOfMinions;
-	public List<SmallTower> towers;
+	private List<SmallTower> towers;
 	private Hero hero;
 	private Minion minion;
 	private SmallTower smallTower;
