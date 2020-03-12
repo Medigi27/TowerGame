@@ -13,12 +13,13 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class GameGraphics extends JPanel implements ActionListener {
-    Timer timer = new Timer(20, this);
+    Timer timer = new Timer(2, this);
     Config          cfg;
     Storage         storage;
     Minion          m;
     SmallTower      st;
     HandlerAdapters ha;
+    GeneratorMinions genMinions;
 
     Image background = new ImageIcon("./src/GameGraphics/image/background.png").getImage();
     Image heroImage = new ImageIcon("./src/GameGraphics/image/despicableMe.png").getImage();
@@ -31,6 +32,7 @@ public class GameGraphics extends JPanel implements ActionListener {
         this.st = new SmallTower();
         m = new Minion();
         ha = new HandlerAdapters(storage);
+        genMinions = new GeneratorMinions();
         timer.start();
         addMouseListener(ha);
         setFocusable(true);
@@ -56,11 +58,14 @@ public class GameGraphics extends JPanel implements ActionListener {
     }
 
     public void paint(Graphics g) {
+        genMinions.update();
+
         drawBackground(g);
         drawHero(g);
         drawTowers(g);
         //todo: tmp fields
         g.drawImage(m.getCurrentImageMinion(), m.getCoord().getX(), 350, 60, 60, null);
+        genMinions.paint(g);
         m.setStatusUnit(StatusUnit.DEFAULT);
     }
 
