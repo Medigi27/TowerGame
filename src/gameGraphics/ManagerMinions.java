@@ -41,8 +41,9 @@ public class ManagerMinions {
 	}
 
 	public void update(){
-		if (minions.size() != countMinions)
+		if (minions.size() != countMinions) {
 			fillMinions();
+		}
 		for(Minion m : minions){
 			if (m.getCoord().getX() < 820)
 				m.move();
