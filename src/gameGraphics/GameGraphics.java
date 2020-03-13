@@ -1,5 +1,6 @@
 package gameGraphics;
 
+import map.Background;
 import map.HandlerAdapters;
 import map.Storage;
 import models.Hero;
@@ -18,21 +19,19 @@ public class GameGraphics extends JPanel implements ActionListener {
     Hero                hero;
     Config              cfg;
     Storage             storage;
-    Minion              m;
-    SmallTower          st;
     HandlerAdapters     ha;
     GeneratorMinions    genMinions;
-    Image               background;
+    Background          bg;
     int                 time;
 
     public GameGraphics(Config cfg, Storage storage) {
         this.cfg = cfg;
         this.storage = storage;
-        this.st = new SmallTower();
         ha = new HandlerAdapters(storage);
         genMinions = new GeneratorMinions(storage);
+        bg = new Background();
         hero = new Hero();
-        background = new ImageIcon("./src/GameGraphics/image/background.png").getImage();
+
         timer = new Timer(20, this);
         timer.start();
         addMouseListener(ha);
@@ -43,37 +42,49 @@ public class GameGraphics extends JPanel implements ActionListener {
         g.drawImage(hero.getCurrentImage(), hero.getCoord().getX(), hero.getCoord().getY(), 80, 110, null);
     }
 
-    private void drawTowers(Graphics g) {
+    private void updateTowers(Graphics g) {
         int length;
 
         for (SmallTower tower : storage.getTowers()) {
-            for (Minion iterMinion : storage.getListOfMinions()) {
-                length = tower.getLength(iterMinion);
+            for (Minion minion : storage.getListOfMinions()) {
+                length = tower.getLength(minion);
                 if (length <= tower.getRadiusAttack()) {
-                    tower.shoot(iterMinion);
+                    tower.shoot(minion);
                 }
                 else {
                     tower.setStatusUnit(StatusUnit.DEFAULT);
-                    iterMinion.setStatusUnit(StatusUnit.DEFAULT);
+                    minion.setMinionImg();
                 }
             }
         }
-        for (SmallTower tower : storage.getTowers()) {
-            g.drawImage(tower.getCurrentImage(), tower.getCoord().getX(), tower.getCoord().getY(), 80, 120, null);
-            genMinions.paint(g);
-        }
     }
 
+    private void drawTowers(Graphics g) {
+        for (SmallTower tower : storage.getTowers()) {
+            g.drawImage(tower.getCurrentImage(), tower.getCoord().getX(), tower.getCoord().getY(), 80, 120, null);
+        }
+    }
     private void drawBackground(Graphics g) {
-        g.drawImage(background, 0, 0, 900,700, null);
+        g.drawImage(bg.getBackground(), 0, 0, 900,700, null);
     }
 
     public void paint(Graphics g) {
-        genMinions.update();
-
-        drawBackground(g);
-        drawHero(g);
-        drawTowers(g);
+        if (genMinions.OneMinionHasGoneToHero()) {
+            drawBackground(g);
+            bg.setBackgroundLooseGame();
+        }
+        else if (genMinions.isAllDie()) {
+            bg.setBackgroundWinGame();
+            drawBackground(g);
+        }
+        else {
+            genMinions.update();
+            updateTowers(g);
+            drawBackground(g);
+            genMinions.paint(g);
+            drawHero(g);
+            drawTowers(g);
+        }
     }
 
     @Override

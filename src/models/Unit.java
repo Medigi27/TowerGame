@@ -94,5 +94,9 @@ public abstract class Unit {
 		this.su = su;
 	}
 
+	public StatusUnit getStatusUnit() {
+		return (this.su);
+	}
+
 	public abstract Image getCurrentImage();
 }

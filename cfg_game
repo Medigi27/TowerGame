@@ -1,5 +1,5 @@
 healthHero  =  3
-healthMinion =  5
+healthMinion =  2
 healthTower = 5
 damageMinion = 1
 damageTower = 1
@@ -8,4 +8,4 @@ quantityMinions = 1
 radiusAttackMinion = 60
 radiusAttackTower = 200
 countMinions = 4
-reload = 50
+reload = 250

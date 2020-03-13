@@ -12,6 +12,7 @@ public class Minion extends ShootingUnit {
 	private final static Image MINION_ATTACKED = new ImageIcon(Storage.PATH_IMG_MINION_ATTACKED).getImage();
 	private final static Image MINION_DIE = new ImageIcon(Storage.PATH_IMG_MINION_DIE).getImage();
 	private int speed;
+	private boolean minionTarget;
 
 	public Minion() {
 		super();
@@ -19,11 +20,20 @@ public class Minion extends ShootingUnit {
 		this.speed = cfg.getCfgValue(Config.SPEED_MINION);
 		this.radiusAttack = cfg.getCfgValue(Config.RADIUS_ATTACK_MINION);
 		this.imageUnit = new ImageIcon("./src/GameGraphics/image/minion.png").getImage();
+		minionTarget = false;
+		this.su = StatusUnit.DEFAULT;
 	}
 
-	public Minion(Config cfg) {
-		this.health = cfg.getCfgValue(Config.SPEED_MINION);
-		this.speed = cfg.getCfgValue(Config.SPEED_MINION);
+	public void setTargetMinion() {
+		this.minionTarget = true;
+	}
+
+	public void setMinionImg() {
+		if (this.health == 0) {
+			this.su = StatusUnit.DIE;
+		}
+		else
+			this.su = StatusUnit.DEFAULT;
 	}
 
 	public Minion(String pathImgMinion) {
@@ -47,12 +57,23 @@ public class Minion extends ShootingUnit {
 		int x = this.coord.getX();
 		int y = this.coord.getY();
 
-		if (this.su != StatusUnit.DIE)
+		if (this.su != StatusUnit.DIE) {
 			if (x > 820) {
 				this.coord.setX(0);
-			}
-			else
+			} else
 				this.coord.setX(x + this.speed);
+		}
+	}
+
+	public void hitMinion() {
+		if (this.health > 0)
+			this.health--;
+		else
+			this.su = StatusUnit.DIE;
+	}
+
+	public StatusUnit getStatusMinion() {
+		return (this.su);
 	}
 
 	@Override
