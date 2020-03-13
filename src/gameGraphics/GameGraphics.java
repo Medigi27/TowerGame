@@ -15,24 +15,22 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class GameGraphics extends JPanel implements ActionListener {
-    Timer timer;
-    Hero                hero;
-    Config              cfg;
-    Storage             storage;
-    HandlerAdapters     ha;
-    GeneratorMinions    genMinions;
-    Background          bg;
-    int                 time;
+    private Hero                hero;
+    private Storage             storage;
+    private GeneratorMinions    genMinions;
+    private Background          bg;
 
-    public GameGraphics(Config cfg, Storage storage) {
-        this.cfg = cfg;
+    public GameGraphics(Storage storage) {
+        HandlerAdapters ha;
+        Timer   timer;
+        int cooldownUpdateScreen = 20;
         this.storage = storage;
         ha = new HandlerAdapters(storage);
         genMinions = new GeneratorMinions(storage);
         bg = new Background();
         hero = new Hero();
 
-        timer = new Timer(20, this);
+        timer = new Timer(cooldownUpdateScreen, this);
         timer.start();
         addMouseListener(ha);
         setFocusable(true);
@@ -42,7 +40,7 @@ public class GameGraphics extends JPanel implements ActionListener {
         g.drawImage(hero.getCurrentImage(), hero.getCoord().getX(), hero.getCoord().getY(), 80, 110, null);
     }
 
-    private void towersToShootMinion(Graphics g) {
+    private void towersToShootMinion() {
         int length;
 
         for (SmallTower tower : storage.getTowers()) {
@@ -79,8 +77,6 @@ public class GameGraphics extends JPanel implements ActionListener {
             drawBackground(g);
         }
         else {
-            genMinions.update();
-            towersToShootMinion(g);
             drawBackground(g);
             genMinions.paint(g);
             drawTowers(g);
@@ -90,7 +86,8 @@ public class GameGraphics extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ++this.time;
+        genMinions.update();
+        towersToShootMinion();
         repaint();
     }
 }

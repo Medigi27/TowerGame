@@ -8,8 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SmallTower extends Tower {
-	private static final Image TOWER_ATTACK = new ImageIcon("src/imagesPolina/imegesGame/damagedTower.png").getImage();
-	private static final Image TOWER_ATTACKED = new ImageIcon("").getImage();
+	private static final Image TOWER_ATTACK = new ImageIcon(Storage.PATH_IMG_TOWER_ATTACK).getImage();
 	private static final Image TOWER_DEFAULT = new ImageIcon(Storage.PATH_IMG_TOWER).getImage();
 
 	public SmallTower() {
@@ -30,8 +29,6 @@ public class SmallTower extends Tower {
 		switch (su) {
 			case ATTACK:
 				return (TOWER_ATTACK);
-			case ATTACKED:
-				return (TOWER_ATTACKED);
 			case DEFAULT:
 				return (TOWER_DEFAULT);
 		}

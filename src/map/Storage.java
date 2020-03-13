@@ -16,7 +16,7 @@ public class Storage {
 	public static final String PATH_IMG_HERO = "./src/GameGraphics/image/despicableMe.png";
 	public static final String PATH_IMG_HERO_ATTACKED = "";
 	public static final String PATH_IMG_TOWER = "./src/GameGraphics/image/tower.png";
-	public static final String PATH_IMG_TOWER_ATTACK = "src/imagesPolina/imegesGame/towerAttack.png";
+	public static final String PATH_IMG_TOWER_ATTACK = "src/imagesPolina/imegesGame/damagedTower.png";
 	public static final String PATH_IMG_TOWER_DESTROY = "";
 	public static final String PATH_TOWER_ATTACKED = "";
 	public static final String PATH_IMG_MINION = "./src/GameGraphics/image/minion.png";
@@ -28,7 +28,6 @@ public class Storage {
 	private List<SmallTower> towers;
 	private Hero hero;
 	private Minion minion;
-	private SmallTower smallTower;
 	public  static final int HEIGHT_WINDOW = 700;
 	public  static final int WIDTH_WINDOW = 900;
 
@@ -38,8 +37,8 @@ public class Storage {
 		this.healthHero = cfg.getCfgValue(Config.HEALTH_HERO);
 		this.healthTower = cfg.getCfgValue(Config.HEALTH_TOWER); //todo: переделать под тип башни
 		this.speedMinion = cfg.getCfgValue(Config.SPEED_MINION);
-		this.listOfMinions = new LinkedList<Minion>();
-		this.towers = new LinkedList<SmallTower>();
+		this.listOfMinions = new LinkedList<>();
+		this.towers = new LinkedList<>();
 		hero = new Hero(PATH_IMG_HERO);
 	}
 
