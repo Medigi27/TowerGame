@@ -9,6 +9,7 @@ public abstract class ShootingUnit extends Unit implements UnitAction {
 	protected int reload;
 	protected int cooldown;
 	protected int timeShoot;
+	protected boolean unitCanShoot;
 
 	ShootingUnit() {
 		super();
@@ -16,6 +17,7 @@ public abstract class ShootingUnit extends Unit implements UnitAction {
 		reload = cfg.getCfgValue(Config.RELOAD);
 		cooldown = 0;
 		timeShoot = 30;
+		unitCanShoot = true;
 	}
 
 	ShootingUnit(String pathImg) {
@@ -38,28 +40,39 @@ public abstract class ShootingUnit extends Unit implements UnitAction {
 		return (timeShoot != 0);
 	}
 
+	public void unitCantShoot() {
+		this.unitCanShoot = false;
+	}
+
+	public void unitCanShoot() {
+		this.unitCanShoot = true;
+	}
+
+	public boolean isCanShoot() {
+		return (unitCanShoot);
+	}
+
 	@Override
 	public void shoot(Unit unit) {
-		if (!isReloading() && unit.getStatusUnit() != StatusUnit.DIE) {
-			this.su = StatusUnit.ATTACK;
-			unit.su = StatusUnit.ATTACKED;
-			cooldown = reload;
-			this.timeShoot = 30;
-			Minion m = (Minion)unit;
-			m.hitMinion();
-		}
-		else if (isTimeShoot() && unit.getStatusUnit() != StatusUnit.DIE) {
-			this.su = StatusUnit.ATTACK;
-			unit.su = StatusUnit.ATTACKED;
-			if (timeShoot > 0)
-				--this.timeShoot;
-			--this.cooldown;
-		}
-		else {
-			--this.cooldown;
-			this.su = StatusUnit.DEFAULT;
-			if (unit.getHealth() != 0)
-				unit.setStatusUnit(StatusUnit.DEFAULT);
-		}
+			if (!isReloading() && unit.getStatusUnit() != StatusUnit.DIE && this.isCanShoot()) {
+//				this.su = StatusUnit.ATTACK;
+//				unit.su = StatusUnit.ATTACKED;
+				cooldown = reload;
+				this.timeShoot = 30;
+				Minion m = (Minion) unit;
+				m.hitMinion();
+				this.unitCantShoot();
+			} else if (isTimeShoot() && unit.getStatusUnit() != StatusUnit.DIE) {
+				this.su = StatusUnit.ATTACK;
+				unit.su = StatusUnit.ATTACKED;
+				if (timeShoot > 0)
+					--this.timeShoot;
+				--this.cooldown;
+			} else {
+				--this.cooldown;
+				this.su = StatusUnit.DEFAULT;
+				if (unit.getHealth() != 0)
+					unit.setStatusUnit(StatusUnit.DEFAULT);
+			}
 	}
 }

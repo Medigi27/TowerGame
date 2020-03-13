@@ -8,4 +8,4 @@ quantityMinions = 4
 radiusAttackMinion = 60
 radiusAttackTower = 200
 countMinions = 4
-reload = 200
+reload = 100

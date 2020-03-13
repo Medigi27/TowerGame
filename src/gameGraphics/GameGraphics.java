@@ -46,6 +46,7 @@ public class GameGraphics extends JPanel implements ActionListener {
         int length;
 
         for (SmallTower tower : storage.getTowers()) {
+            tower.unitCanShoot();
             for (Minion minion : storage.getListOfMinions()) {
                 length = tower.getLength(minion);
                 if (length <= tower.getRadiusAttack()) {
@@ -82,8 +83,8 @@ public class GameGraphics extends JPanel implements ActionListener {
             updateTowers(g);
             drawBackground(g);
             genMinions.paint(g);
-            drawHero(g);
             drawTowers(g);
+            drawHero(g);
         }
     }
 
