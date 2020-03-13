@@ -42,7 +42,7 @@ public class GameGraphics extends JPanel implements ActionListener {
         g.drawImage(hero.getCurrentImage(), hero.getCoord().getX(), hero.getCoord().getY(), 80, 110, null);
     }
 
-    private void updateTowers(Graphics g) {
+    private void towersToShootMinion(Graphics g) {
         int length;
 
         for (SmallTower tower : storage.getTowers()) {
@@ -66,7 +66,7 @@ public class GameGraphics extends JPanel implements ActionListener {
         }
     }
     private void drawBackground(Graphics g) {
-        g.drawImage(bg.getBackground(), 0, 0, 900,700, null);
+        g.drawImage(bg.getBackground(), bg.getCoord().getX(), bg.getCoord().getY(), bg.getWidth(),bg.getHeight(), null);
     }
 
     public void paint(Graphics g) {
@@ -80,7 +80,7 @@ public class GameGraphics extends JPanel implements ActionListener {
         }
         else {
             genMinions.update();
-            updateTowers(g);
+            towersToShootMinion(g);
             drawBackground(g);
             genMinions.paint(g);
             drawTowers(g);

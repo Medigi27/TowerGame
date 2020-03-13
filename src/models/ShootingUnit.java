@@ -69,7 +69,7 @@ public abstract class ShootingUnit extends Unit implements UnitAction {
 			} else {
 				--this.cooldown;
 				this.su = StatusUnit.DEFAULT;
-				if (unit.getHealth() != 0)
+				if (unit.getStatusUnit() != StatusUnit.DIE)
 					unit.setStatusUnit(StatusUnit.DEFAULT);
 			}
 	}

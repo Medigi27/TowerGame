@@ -19,6 +19,8 @@ public class Config {
 	public static final String  RADIUS_ATTACK_TOWER = "radiusAttackTower";
 	public static final String  COUNT_MINIONS = "countMinions";
 	public static final String RELOAD = "reload";
+	public static final String WINDOW_HEIGHT = "windowHeight";
+	public static final String WINDOW_WIDTH = "windowWidth";
 	public static final int DEFAULT_HEALTH = 10;
 	public static final int DEFAULT_DAMAGE = 1;
 	public static final int DEFAULT_SPEED = 3;

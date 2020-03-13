@@ -12,7 +12,6 @@ public class Minion extends ShootingUnit {
 	private final static Image MINION_ATTACKED = new ImageIcon(Storage.PATH_IMG_MINION_ATTACKED).getImage();
 	private final static Image MINION_DIE = new ImageIcon(Storage.PATH_IMG_MINION_DIE).getImage();
 	private int speed;
-	private boolean minionTarget;
 
 	public Minion() {
 		super();
@@ -21,12 +20,7 @@ public class Minion extends ShootingUnit {
 		this.radiusAttack = cfg.getCfgValue(Config.RADIUS_ATTACK_MINION);
 		this.health = cfg.getCfgValue(Config.HEALTH_MINION);
 		this.imageUnit = new ImageIcon("./src/GameGraphics/image/minion.png").getImage();
-		minionTarget = false;
 		this.su = StatusUnit.DEFAULT;
-	}
-
-	public void setTargetMinion() {
-		this.minionTarget = true;
 	}
 
 	public void setMinionImg() {

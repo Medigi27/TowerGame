@@ -48,35 +48,6 @@ public abstract class Unit {
 		this.isAlive = isAlive;
 	}
 
-	public Unit(int health, boolean isAlive, Coordinates coord) {
-		this(health, isAlive);
-	}
-
-	public void setHealth(int health) {
-		this.health = health;
-	}
-
-	public void setAlive(boolean isAlive) {
-		this.isAlive = isAlive;
-	}
-
-	public void setCoord(Coordinates coord) {
-		this.coord = coord;
-	}
-
-	public void setCoord(int x, int y) {
-		this.coord.setX(x);
-		this.coord.setY(y);
-	}
-
-	public int getHealth() {
-		return this.health;
-	}
-
-	public boolean isAlive() {
-		return isAlive;
-	}
-
 	public Coordinates getCoord() {
 		return coord;
 	}

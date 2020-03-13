@@ -1,3 +1,5 @@
+windowHeight = 700
+windowWidth = 900
 healthHero  =  3
 healthMinion =  20
 healthTower = 5
