@@ -23,6 +23,7 @@ public class Storage {
 	public static final String PATH_IMG_MINION_ATTACK = "";
 	public static final String PATH_IMG_MINION_ATTACKED = "src/imagesPolina/imegesGame/minionAttacked.png";
 	public static final String PATH_IMG_MINION_DIE = "";
+	public static final String PATH_IMG_GAMEOVER = "./src/GameGraphics/image/gameOwer.png";
 
 	private List<Minion> listOfMinions;
 	private List<SmallTower> towers;

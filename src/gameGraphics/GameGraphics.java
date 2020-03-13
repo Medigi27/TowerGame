@@ -2,6 +2,7 @@ package gameGraphics;
 
 import map.HandlerAdapters;
 import map.Storage;
+import models.Hero;
 import models.Minion;
 import models.SmallTower;
 import models.StatusUnit;
@@ -13,14 +14,16 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class GameGraphics extends JPanel implements ActionListener {
-    Timer timer = new Timer(3, this);
+    Timer timer = new Timer(2, this);
     Config          cfg;
     Storage         storage;
     Minion          m;
     SmallTower      st;
     HandlerAdapters ha;
-    GeneratorMinions genMinions;
+    MinionsManager genMinions;
+    Hero hero;
 
+    Image GAME_OVER = new ImageIcon("./src/GameGraphics/image/gameOver.png").getImage();
     Image background = new ImageIcon("./src/GameGraphics/image/background.png").getImage();
     Image heroImage = new ImageIcon("./src/GameGraphics/image/despicableMe.png").getImage();
     Image tower = new ImageIcon("./src/GameGraphics/image/tower.png").getImage();
@@ -31,7 +34,8 @@ public class GameGraphics extends JPanel implements ActionListener {
         this.storage = storage;
         this.st = new SmallTower();
         ha = new HandlerAdapters(storage);
-        genMinions = new GeneratorMinions(storage);
+        hero = Hero.getInstance();
+        genMinions = new MinionsManager(storage);
         timer.start();
         addMouseListener(ha);
         setFocusable(true);
@@ -63,18 +67,30 @@ public class GameGraphics extends JPanel implements ActionListener {
     }
 
     private void drawBackground(Graphics g) {
+
         g.drawImage(background, 0, 0, 900,700, null);
     }
 
     public void paint(Graphics g) {
-        genMinions.update();
 
+
+
+
+       // }else
+       genMinions.update();
         drawBackground(g);
         drawHero(g);
         drawTowers(g);
         //todo: tmp fields
-//        genMinions.paint(g);
+//        genMinions.paint(g)
+        if(hero.heroHealth <= 0){
+            g.drawImage(GAME_OVER, 0, 0, 900, 700, null);}else
+        {}
+
     }
+
+
+
 
     @Override
     public void actionPerformed(ActionEvent e) {

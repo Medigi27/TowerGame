@@ -1,6 +1,7 @@
 package gameGraphics;
 
 import map.Storage;
+import models.Hero;
 import models.Minion;
 import other.Config;
 
@@ -9,18 +10,20 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class GeneratorMinions{
+public class MinionsManager {
 	List<Minion> minions;
 	Config cfg;
 	int cooldown = 100;
 	Random r;
 	int countMinions;
+	Hero hero;
 
-	public GeneratorMinions(Storage storage) {
+	public MinionsManager(Storage storage) {
 		minions = storage.getListOfMinions();
 		cfg = Config.getInstance();
 		this.countMinions = cfg.getCfgValue(Config.COUNT_MINIONS);
 		r = new Random();
+		hero = storage.getHero();
 	}
 
 	void fillMinions(){
@@ -35,6 +38,16 @@ public class GeneratorMinions{
 
 	}
 
+	void minionAttackHero(){
+		for (int i = 0; i < minions.size(); i++) {
+			if(minions.get(i).getCoord().getX() == 810){
+				minions.remove(i);
+				hero.loseHeroHealth();
+			}
+		}
+
+	}
+
 	public void paint(Graphics g) {
 
 		for (Minion iter : minions) {
@@ -44,6 +57,8 @@ public class GeneratorMinions{
 
 	public void update(){
 		fillMinions();
+		minionAttackHero();
+		hero.heroHealth--;
 		for(Minion m : minions){
 			m.move();
 		}
