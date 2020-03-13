@@ -39,16 +39,13 @@ public class GeneratorMinions{
 		}
 	}
 
-	public boolean update(){
+	public void update(){
 		if (minions.size() != countMinions)
 			fillMinions();
 		for(Minion m : minions){
 			if (m.getCoord().getX() < 820)
 				m.move();
-			else
-				return (false);
 		}
-		return (true);
 	}
 
 	public boolean OneMinionHasGoneToHero() {

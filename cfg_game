@@ -1,5 +1,5 @@
 healthHero  =  3
-healthMinion =  2
+healthMinion =  20
 healthTower = 5
 damageMinion = 1
 damageTower = 1

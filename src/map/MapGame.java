@@ -4,6 +4,7 @@ import gameGraphics.GameGraphics;
 import other.Config;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MapGame {
     private Config cfg;

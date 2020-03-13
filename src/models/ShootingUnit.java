@@ -55,8 +55,6 @@ public abstract class ShootingUnit extends Unit implements UnitAction {
 	@Override
 	public void shoot(Unit unit) {
 			if (!isReloading() && unit.getStatusUnit() != StatusUnit.DIE && this.isCanShoot()) {
-//				this.su = StatusUnit.ATTACK;
-//				unit.su = StatusUnit.ATTACKED;
 				cooldown = reload;
 				this.timeShoot = 30;
 				Minion m = (Minion) unit;
