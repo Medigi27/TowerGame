@@ -39,7 +39,7 @@ public class Storage {
 		this.speedMinion = cfg.getCfgValue(Config.SPEED_MINION);
 		this.listOfMinions = new LinkedList<>();
 		this.towers = new LinkedList<>();
-		hero = new Hero(PATH_IMG_HERO);
+		hero = new Hero();
 	}
 
 	public int getHealthMinion() {

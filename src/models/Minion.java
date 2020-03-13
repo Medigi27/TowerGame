@@ -19,7 +19,6 @@ public class Minion extends ShootingUnit {
 		this.speed = cfg.getCfgValue(Config.SPEED_MINION);
 		this.radiusAttack = cfg.getCfgValue(Config.RADIUS_ATTACK_MINION);
 		this.health = cfg.getCfgValue(Config.HEALTH_MINION);
-		this.imageUnit = new ImageIcon("./src/GameGraphics/image/minion.png").getImage();
 		this.su = StatusUnit.DEFAULT;
 	}
 
@@ -31,25 +30,8 @@ public class Minion extends ShootingUnit {
 			this.su = StatusUnit.DEFAULT;
 	}
 
-	public Minion(String pathImgMinion) {
-		super(pathImgMinion);
-	}
-
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-
-	public int getSpeed() {
-		return (this.speed);
-	}
-
-	public Image getImgMinion() {
-		return (getCurrentImage());
-	}
-
 	public void move() {
 		int x = this.coord.getX();
-		int y = this.coord.getY();
 
 		if (this.su != StatusUnit.DIE) {
 			if (x > 820) {

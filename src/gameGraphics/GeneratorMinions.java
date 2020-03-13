@@ -12,11 +12,12 @@ import java.util.Random;
 public class GeneratorMinions{
 	List<Minion> minions;
 	Config  cfg;
-	int     cooldown = 100;
+	int     cooldown;
 	Random  r;
 	int     countMinions;
 
 	public GeneratorMinions(Storage storage) {
+		this.cooldown = 100;
 		minions = storage.getListOfMinions();
 		cfg = Config.getInstance();
 		this.countMinions = cfg.getCfgValue(Config.COUNT_MINIONS);

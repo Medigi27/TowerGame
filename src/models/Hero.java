@@ -17,10 +17,6 @@ public class Hero extends Unit {
 		coord.setY(300);
 	}
 
-	public Hero(String pathImgHero) {
-		super(pathImgHero);
-	}
-
 	public Image getCurrentImage() {
 		switch (su) {
 			case DIE:

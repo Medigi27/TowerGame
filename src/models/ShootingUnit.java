@@ -5,7 +5,6 @@ import other.Coordinates;
 
 public abstract class ShootingUnit extends Unit implements UnitAction {
 	protected int radiusAttack;
-	protected int damage;
 	protected int reload;
 	protected int cooldown;
 	protected int timeShoot;
@@ -18,14 +17,6 @@ public abstract class ShootingUnit extends Unit implements UnitAction {
 		cooldown = 0;
 		timeShoot = 30;
 		unitCanShoot = true;
-	}
-
-	ShootingUnit(String pathImg) {
-		super(pathImg);
-	}
-
-	public void setRadiusAttack(int radiusAttack) {
-		this.radiusAttack = radiusAttack;
 	}
 
 	public int getRadiusAttack() {

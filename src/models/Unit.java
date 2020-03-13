@@ -10,9 +10,7 @@ import java.awt.event.KeyEvent;
 
 public abstract class Unit {
 	protected int           health;
-	protected boolean       isAlive;
 	protected Coordinates   coord;
-	protected Image         imageUnit;
 	protected StatusUnit    su;
 	protected int           unitHeight;
 	protected int           unitWight;
@@ -20,32 +18,11 @@ public abstract class Unit {
 	public Unit() {
 		this.su = StatusUnit.DEFAULT;
 		health = 0;
-		isAlive = false;
 		coord = new Coordinates(0, 0);
 		coord.setX(0);
 		coord.setY(0);
 		unitHeight = 0;
 		unitWight = 0;
-	}
-
-	public Unit(Config cfg) {
-		this();
-		this.health = Config.DEFAULT_HEALTH;
-	}
-
-	public Unit(String pathImage) {
-		this();
-		this.imageUnit = new ImageIcon(pathImage).getImage();
-	}
-
-	public Unit(int health) {
-		this();
-		this.health = health;
-	}
-
-	public Unit(int health, boolean isAlive) {
-		this(health);
-		this.isAlive = isAlive;
 	}
 
 	public Coordinates getCoord() {
