@@ -53,7 +53,6 @@ public class Minion extends ShootingUnit {
 	}
 
 	public void move() {
-		//todo проверка выхода за пределы
 		int x = this.coord.getX();
 		int y = this.coord.getY();
 
