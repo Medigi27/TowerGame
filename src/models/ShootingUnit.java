@@ -1,7 +1,6 @@
 package models;
 
 import other.Config;
-import other.Coordinates;
 
 public abstract class ShootingUnit extends Unit implements UnitAction {
 	protected int radiusAttack;

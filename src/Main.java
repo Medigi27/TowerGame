@@ -1,8 +1,8 @@
-import map.MapGame;
+import map.Game;
 
 public class Main {
 	public static void main(String[] args) {
-		MapGame mp = new MapGame();
+		Game mp = new Game();
 
 		mp.startGame();
 	}

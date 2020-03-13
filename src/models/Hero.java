@@ -1,7 +1,6 @@
 package models;
 
 import map.Storage;
-import other.Coordinates;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +8,6 @@ import java.awt.*;
 public class Hero extends Unit {
 	private static final Image HERO_STAND = new ImageIcon(Storage.PATH_IMG_HERO).getImage();
 	private static final Image HERO_DIE = new ImageIcon(Storage.PATH_IMG_HERO).getImage();
-	private String name;
 
 	public Hero() {
 		super();

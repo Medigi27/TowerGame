@@ -1,6 +1,5 @@
 package map;
 
-import models.BackObject;
 import other.Config;
 import other.Coordinates;
 

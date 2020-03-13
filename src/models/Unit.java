@@ -1,12 +1,9 @@
 package models;
 
 import map.Storage;
-import other.Config;
 import other.Coordinates;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
 
 public abstract class Unit {
 	protected int           health;

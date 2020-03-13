@@ -9,14 +9,14 @@ import java.awt.*;
 import java.util.List;
 import java.util.Random;
 
-public class GeneratorMinions{
+public class ManagerMinions {
 	List<Minion> minions;
 	Config  cfg;
 	int     cooldown;
 	Random  r;
 	int     countMinions;
 
-	public GeneratorMinions(Storage storage) {
+	public ManagerMinions(Storage storage) {
 		this.cooldown = 100;
 		minions = storage.getListOfMinions();
 		cfg = Config.getInstance();
@@ -56,7 +56,6 @@ public class GeneratorMinions{
 					return (true);
 				}
 			}
-			return (false);
 		}
 		return (false);
 	}

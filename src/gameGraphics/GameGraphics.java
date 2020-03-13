@@ -7,17 +7,15 @@ import models.Hero;
 import models.Minion;
 import models.SmallTower;
 import models.StatusUnit;
-import other.Config;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 public class GameGraphics extends JPanel implements ActionListener {
     private Hero                hero;
     private Storage             storage;
-    private GeneratorMinions    genMinions;
+    private ManagerMinions genMinions;
     private Background          bg;
 
     public GameGraphics(Storage storage) {
@@ -26,9 +24,9 @@ public class GameGraphics extends JPanel implements ActionListener {
         int cooldownUpdateScreen = 20;
         this.storage = storage;
         ha = new HandlerAdapters(storage);
-        genMinions = new GeneratorMinions(storage);
+        genMinions = new ManagerMinions(storage);
         bg = new Background();
-        hero = new Hero();
+        hero = storage.getHero();
 
         timer = new Timer(cooldownUpdateScreen, this);
         timer.start();

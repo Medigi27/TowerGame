@@ -1,10 +1,8 @@
 package other;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import gameTrows.CfgValueNotFound;
 
 import java.io.*;
-import java.nio.Buffer;
 import java.util.*;
 
 public class Config {
@@ -38,7 +36,7 @@ public class Config {
 	}
 
 	private Config() {
-		lines = new HashMap<String, Integer>();
+		lines = new HashMap<>();
 		getInfoCfg();
 	}
 
@@ -87,12 +85,6 @@ public class Config {
 				br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-	}
-
-	public void printMap() {
-		for (Map.Entry<String, Integer> iter : lines.entrySet()) {
-			System.out.printf("key: %s  value: %s\n", iter.getKey(), iter.getValue());
 		}
 	}
 }

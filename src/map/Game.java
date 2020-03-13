@@ -4,10 +4,10 @@ import gameGraphics.GameGraphics;
 
 import javax.swing.*;
 
-public class MapGame {
+public class Game {
     private Storage storage;
 
-    public MapGame() {
+    public Game() {
         storage = new Storage();
     }
 
