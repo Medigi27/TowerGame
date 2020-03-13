@@ -21,7 +21,7 @@ public class Storage {
 	public static final String PATH_TOWER_ATTACKED = "";
 	public static final String PATH_IMG_MINION = "./src/GameGraphics/image/minion.png";
 	public static final String PATH_IMG_MINION_ATTACK = "";
-	public static final String PATH_IMG_MINION_ATTACKED = "src/imagesPolina/imegesGame/minionAttacked.png";
+	public static final String PATH_IMG_MINION_ATTACKED = "src/imagesPolina/imegesGame/damagedMinion.png";
 	public static final String PATH_IMG_MINION_DIE = "";
 
 	private List<Minion> listOfMinions;

@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SmallTower extends Tower {
-	private static final Image TOWER_ATTACK = new ImageIcon("src/imagesPolina/imegesGame/towerAttack.png").getImage();
+	private static final Image TOWER_ATTACK = new ImageIcon("src/imagesPolina/imegesGame/damagedTower.png").getImage();
 	private static final Image TOWER_ATTACKED = new ImageIcon("").getImage();
 	private static final Image TOWER_DESTROY = new ImageIcon("").getImage();
 	private static final Image TOWER_DEFAULT = new ImageIcon(Storage.PATH_IMG_TOWER).getImage();

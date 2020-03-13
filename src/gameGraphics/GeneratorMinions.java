@@ -28,9 +28,9 @@ public class GeneratorMinions{
 		if(minions.size() == countMinions){
 
 		}else
-		if(cooldown<= 0){
+		if(cooldown <= 0){
 			minions.add(new Minion());
-			cooldown = r.nextInt(100)+100;
+			cooldown = r.nextInt(100) + 100;
 		}
 
 	}

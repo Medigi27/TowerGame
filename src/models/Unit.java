@@ -14,6 +14,8 @@ public abstract class Unit {
 	protected Coordinates   coord;
 	protected Image         imageUnit;
 	protected StatusUnit    su;
+	protected int           unitHeight;
+	protected int           unitWight;
 
 	public Unit() {
 		this.su = StatusUnit.DEFAULT;
@@ -22,6 +24,8 @@ public abstract class Unit {
 		coord = new Coordinates(0, 0);
 		coord.setX(0);
 		coord.setY(0);
+		unitHeight = 0;
+		unitWight = 0;
 	}
 
 	public Unit(Config cfg) {

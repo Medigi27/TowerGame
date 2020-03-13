@@ -47,12 +47,12 @@ public class Minion extends ShootingUnit {
 		int x = this.coord.getX();
 		int y = this.coord.getY();
 
-		//tmp
-		if (x > 820) {
-			this.coord.setX(0);
-		}
-		else
-			this.coord.setX(x + this.speed);
+		if (this.su != StatusUnit.DIE)
+			if (x > 820) {
+				this.coord.setX(0);
+			}
+			else
+				this.coord.setX(x + this.speed);
 	}
 
 	@Override
