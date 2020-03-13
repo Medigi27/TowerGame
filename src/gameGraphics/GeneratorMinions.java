@@ -38,7 +38,7 @@ public class GeneratorMinions{
 	public void paint(Graphics g) {
 
 		for (Minion iter : minions) {
-			g.drawImage(iter.getCurrentImageMinion(), iter.getCoord().getX(), 350, 60, 60, null);
+			g.drawImage(iter.getCurrentImage(), iter.getCoord().getX(), 350, 60, 60, null);
 		}
 	}
 

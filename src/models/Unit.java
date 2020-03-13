@@ -89,4 +89,6 @@ public abstract class Unit {
 	public void setStatusUnit(StatusUnit su) {
 		this.su = su;
 	}
+
+	public abstract Image getCurrentImage();
 }

@@ -39,7 +39,7 @@ public class Minion extends ShootingUnit {
 	}
 
 	public Image getImgMinion() {
-		return (getCurrentImageMinion());
+		return (getCurrentImage());
 	}
 
 	public void move() {
@@ -55,7 +55,8 @@ public class Minion extends ShootingUnit {
 			this.coord.setX(x + this.speed);
 	}
 
-	public Image getCurrentImageMinion() {
+	@Override
+	public Image getCurrentImage() {
 		switch (su) {
 			case ATTACK:
 				return (MINION_ATTACK);

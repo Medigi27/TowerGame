@@ -30,10 +30,11 @@ public class SmallTower extends Tower {
 	}
 
 	public Image getImage() {
-		return (getCurrentImageTower());
+		return (getCurrentImage());
 	}
 
-	public Image getCurrentImageTower() {
+	@Override
+	public Image getCurrentImage() {
 		switch (su) {
 			case ATTACK:
 				return (TOWER_ATTACK);

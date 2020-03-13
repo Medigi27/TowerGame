@@ -2,6 +2,7 @@ package gameGraphics;
 
 import map.HandlerAdapters;
 import map.Storage;
+import models.Hero;
 import models.Minion;
 import models.SmallTower;
 import models.StatusUnit;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 
 public class GameGraphics extends JPanel implements ActionListener {
     Timer timer = new Timer(3, this);
+    Hero            hero;
     Config          cfg;
     Storage         storage;
     Minion          m;
@@ -32,13 +34,14 @@ public class GameGraphics extends JPanel implements ActionListener {
         this.st = new SmallTower();
         ha = new HandlerAdapters(storage);
         genMinions = new GeneratorMinions(storage);
+        hero = new Hero();
         timer.start();
         addMouseListener(ha);
         setFocusable(true);
     }
 
     private void drawHero(Graphics g) {
-        g.drawImage(heroImage, 820, 300, 80, 110, null);
+        g.drawImage(hero.getCurrentImage(), hero.getCoord().getX(), hero.getCoord().getY(), 80, 110, null);
     }
 
     private void drawTowers(Graphics g) {
@@ -56,7 +59,7 @@ public class GameGraphics extends JPanel implements ActionListener {
             }
         }
         for (SmallTower iter : storage.getTowers()) {
-            g.drawImage(iter.getCurrentImageTower(), iter.getCoord().getX(), iter.getCoord().getY(), 80, 120, null);
+            g.drawImage(iter.getCurrentImage(), iter.getCoord().getX(), iter.getCoord().getY(), 80, 120, null);
             iter.setStatusUnit(StatusUnit.DEFAULT);
         }
         genMinions.paint(g);
