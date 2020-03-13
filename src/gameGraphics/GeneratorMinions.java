@@ -1,13 +1,11 @@
 package gameGraphics;
 
-import com.sun.deploy.security.SelectableSecurityManager;
 import map.Storage;
 import models.Minion;
 import models.StatusUnit;
 import other.Config;
 
 import java.awt.*;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -17,7 +15,6 @@ public class GeneratorMinions{
 	int     cooldown = 100;
 	Random  r;
 	int     countMinions;
-	int     qtyMinons;
 
 	public GeneratorMinions(Storage storage) {
 		minions = storage.getListOfMinions();
@@ -34,15 +31,6 @@ public class GeneratorMinions{
 			cooldown = r.nextInt(100) + 100;
 		}
 	}
-
-//	void minionAttackHero(){
-//		for (int i = 0; i < minions.size(); i++) {
-//			if(minions.get(i).getCoord().getX() == 810){
-//				minions.remove(i);
-//				hero.loseHeroHealth();
-//			}
-//		}
-//	}
 
 	public void paint(Graphics g) {
 

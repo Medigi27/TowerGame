@@ -70,7 +70,7 @@ public abstract class Unit {
 	}
 
 	public int getHealth() {
-		return health;
+		return this.health;
 	}
 
 	public boolean isAlive() {

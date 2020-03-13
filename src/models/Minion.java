@@ -19,6 +19,7 @@ public class Minion extends ShootingUnit {
 		Config cfg = Config.getInstance();
 		this.speed = cfg.getCfgValue(Config.SPEED_MINION);
 		this.radiusAttack = cfg.getCfgValue(Config.RADIUS_ATTACK_MINION);
+		this.health = cfg.getCfgValue(Config.HEALTH_MINION);
 		this.imageUnit = new ImageIcon("./src/GameGraphics/image/minion.png").getImage();
 		minionTarget = false;
 		this.su = StatusUnit.DEFAULT;

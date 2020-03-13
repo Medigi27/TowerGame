@@ -13,7 +13,6 @@ public abstract class ShootingUnit extends Unit implements UnitAction {
 	ShootingUnit() {
 		super();
 		Config cfg = Config.getInstance();
-		this.health = cfg.getCfgValue(Config.HEALTH_MINION);
 		reload = cfg.getCfgValue(Config.RELOAD);
 		cooldown = 0;
 		timeShoot = 30;
@@ -59,6 +58,8 @@ public abstract class ShootingUnit extends Unit implements UnitAction {
 		else {
 			--this.cooldown;
 			this.su = StatusUnit.DEFAULT;
+			if (unit.getHealth() != 0)
+				unit.setStatusUnit(StatusUnit.DEFAULT);
 		}
 	}
 }
